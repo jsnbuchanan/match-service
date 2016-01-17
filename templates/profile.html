@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block nav %}
+    <li><a href="/search">Search</a></li>
+    <li><a href="/results">Results</a></li>
+    <li><a href="/profiles">Your Profiles</a></li>
+{% endblock %}
+
+{% block page %}
+        <div class="container text-center profile-container">
+            <div class="images">
+                {% for image in profile.images %}
+                    <img src="/static/{{ image }}" class="img-responsive" alt=""/>
+                {% endfor %}
+            </div>
+            <h1>{{ profile.name }}</h1>
+            <p>{{ profile.description }}</p>
+        </div>
+{% endblock %}
