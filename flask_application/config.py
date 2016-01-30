@@ -10,7 +10,7 @@ class Config(object):
         self.HEROKU = False
         self.PRODUCTION = False
 
-        self.SECRET_KEY = '{SECRET_KEY}'
+        self.SECRET_KEY = 'This is a secret key that no one will ever know'
         self.SITE_NAME = 'Flask Site'
         self.LOG_LEVEL = logging.DEBUG
         self.SERVER_NAME = 'localhost:5000'
@@ -39,7 +39,7 @@ class Config(object):
         self.SECUIRTY_POST_LOGIN = '/'
         self.SECURITY_PASSWORD_HASH = 'pbkdf2_sha512'
         # import uuid; salt = uuid.uuid4().hex
-        self.SECURITY_PASSWORD_SALT = '2b8b74efc58e489e879810905b6b6d4dc6'
+        self.SECURITY_PASSWORD_SALT = 'd3556e4eeeb4430fae0fa706ee7d8bdf'
 
         self.SECURITY_CONFIRMABLE = True
         self.SECURITY_LOGIN_WITHOUT_CONFIRMATION = False
@@ -70,10 +70,10 @@ class ProductionConfig(Config):
         self.SERVER_NAME = 'example.com'
 
         self.MAIL_SERVER = 'smtp.mandrillapp.com'
-        self.MAIL_PORT = 465
+        self.MAIL_PORT = 587
         self.MAIL_USE_SSL = True
-        self.MAIL_USERNAME = os.getenv('MANDRILL_USERNAME')
-        self.MAIL_PASSWORD = os.getenv('MANDRILL_APIKEY')
+        self.MAIL_USERNAME = os.getenv('jsnbuchanan@gmail.com')
+        self.MAIL_PASSWORD = os.getenv('yx4sFrcY1OtaQWDpLI3k1w')
 
         self.MONGODB_SETTINGS = self.mongo_from_uri(os.getenv('MONGOHQ_URL'))
 

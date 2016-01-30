@@ -31,10 +31,10 @@ class PopulateDB(Command):
 
     @staticmethod
     def create_users():
-        for u in (('matt', 'matt@lp.com', 'password', ['admin'], True),
-                  ('joe', 'joe@lp.com', 'password', ['editor'], True),
-                  ('jill', 'jill@lp.com', 'password', ['author'], True),
-                  ('tiya', 'tiya@lp.com', 'password', [], False)):
+        for u in (('ian', 'hapgilmore23@gmail.com', 'password', ['admin'], True),
+                  ('christina', 'christina.cloward@gmail.com', 'password', ['editor'], True),
+                  ('jason', 'jsnbuchanan@gmail.com', 'password', ['admin'], True),
+                  ('amy', 'aobuchanan@gmail.com', 'password', ['author'], False)):
             user = current_app.user_datastore.create_user(
                 username=u[0],
                 email=u[1],

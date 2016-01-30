@@ -29,15 +29,15 @@ class TestSecurity(FlaskTest):
         rv = self.login('jimbob@example.com', 'password')
         self.assertTrue('Specified user does not exist' in rv.data)
 
-        rv = self.login('jill@lp.com', 'password')
-        self.assertTrue('Hello jill@lp.com' in rv.data)
+        rv = self.login('christina.cloward@gmail.com', 'password')
+        self.assertTrue('Hello christina.cloward@gmail.com' in rv.data)
 
-        self.assertLoggedIn('jill@lp.com')
+        self.assertLoggedIn('christina.cloward@gmail.com')
 
         self.logout()
 
         rv = self.client.get('/')
-        self.assertFalse('Hello jill@lp.com' in rv.data)
+        self.assertFalse('Hello christina.cloward@gmail.com' in rv.data)
 
     def test_register(self):
 
