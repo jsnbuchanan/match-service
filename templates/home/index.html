@@ -2,11 +2,18 @@
 
 
 {% block content %}
-
-    <div class="row">
-        <div class="col-xs-12">
-            Hello World, at {{ now }}, {{ now|time_ago }}
+{#            Hello World, at {{ now }}, {{ now|time_ago }}#}
+    <div class="container">
+        <div class="search-center">
+            <h1>Search</h1>
+            <p>Find out how simple it can be to find your match.</p>
+            <form class="navbar-form" action="/results">
+                <input type="text" class="form-control">
+                <button type="submit" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-search"></span>
+                    <span class="sr-only">go</span>
+                </button>
+            </form>
         </div>
     </div>
-
 {% endblock %}

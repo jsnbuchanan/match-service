@@ -34,6 +34,7 @@ class PopulateDB(Command):
         for u in (('ian', 'hapgilmore23@gmail.com', 'password', ['admin'], True),
                   ('christina', 'christina.cloward@gmail.com', 'password', ['editor'], True),
                   ('jason', 'jsnbuchanan@gmail.com', 'password', ['admin'], True),
+                  ('regularUser', 'jsnbuchanan+noPerms@gmail.com', 'password', [], True),
                   ('amy', 'aobuchanan@gmail.com', 'password', ['author'], False)):
             user = current_app.user_datastore.create_user(
                 username=u[0],
