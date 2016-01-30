@@ -23,12 +23,12 @@ class Config(object):
         )
 
         # Configured for Gmail
-        self.DEFAULT_MAIL_SENDER = 'Jason <fitnessfocusball@gmail.com>'
-        self.MAIL_SERVER = 'smtp.gmail.com'
-        self.MAIL_PORT = 465
-        self.MAIL_USE_SSL = True
-        self.MAIL_USERNAME = 'fitnessfocusball@gmail.com'
-        self.MAIL_PASSWORD = '4theworld'
+        self.DEFAULT_MAIL_SENDER = 'Jason <contact@fitnessfocusgroup.com>'
+        self.MAIL_SERVER = 'smtp.mandrillapp.com'
+        self.MAIL_PORT = 587
+        self.MAIL_USE_SSL = False
+        self.MAIL_USERNAME = 'jsnbuchanan@gmail.com' # os.getenv('jsnbuchanan@gmail.com')
+        self.MAIL_PASSWORD = 'yx4sFrcY1OtaQWDpLI3k1w' # os.getenv('yx4sFrcY1OtaQWDpLI3k1w')
 
         # Flask-Security setup
         self.SECURITY_EMAIL_SENDER = 'Security < security@example.com >'
@@ -71,9 +71,9 @@ class ProductionConfig(Config):
 
         self.MAIL_SERVER = 'smtp.mandrillapp.com'
         self.MAIL_PORT = 587
-        self.MAIL_USE_SSL = True
-        self.MAIL_USERNAME = os.getenv('jsnbuchanan@gmail.com')
-        self.MAIL_PASSWORD = os.getenv('yx4sFrcY1OtaQWDpLI3k1w')
+        self.MAIL_USE_SSL = False
+        self.MAIL_USERNAME = 'jsnbuchanan@gmail.com' # os.getenv('jsnbuchanan@gmail.com')
+        self.MAIL_PASSWORD = 'yx4sFrcY1OtaQWDpLI3k1w' # os.getenv('yx4sFrcY1OtaQWDpLI3k1w')
 
         self.MONGODB_SETTINGS = self.mongo_from_uri(os.getenv('MONGOHQ_URL'))
 
