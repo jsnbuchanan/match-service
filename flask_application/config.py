@@ -64,10 +64,11 @@ class ProductionConfig(Config):
     def __init__(self):
         super(ProductionConfig, self).__init__()
         self.ENVIRONMENT = 'Production'
+        self.DEBUG = True
         self.HEROKU = True
         self.PRODUCTION = True
         self.LOG_LEVEL = logging.DEBUG
-        self.SERVER_NAME = 'example.com'
+        self.SERVER_NAME = 'happygilmore.herokuapp.com'
 
         self.MAIL_SERVER = 'smtp.mandrillapp.com'
         self.MAIL_PORT = 587
@@ -75,7 +76,8 @@ class ProductionConfig(Config):
         self.MAIL_USERNAME = 'jsnbuchanan@gmail.com' # os.getenv('jsnbuchanan@gmail.com')
         self.MAIL_PASSWORD = 'yx4sFrcY1OtaQWDpLI3k1w' # os.getenv('yx4sFrcY1OtaQWDpLI3k1w')
 
-        self.MONGODB_SETTINGS = self.mongo_from_uri(os.getenv('MONGOHQ_URL'))
+        # self.MONGODB_SETTINGS = self.mongo_from_uri(os.getenv('MONGOHQ_URL'))
+        self.MONGODB_SETTINGS = self.mongo_from_uri(os.getenv('MONGOLAB_URI'))
 
 
 class DevelopmentConfig(Config):
