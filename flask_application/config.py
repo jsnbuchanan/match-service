@@ -66,7 +66,7 @@ class ProductionConfig(Config):
         self.ENVIRONMENT = 'Production'
         self.HEROKU = True
         self.PRODUCTION = True
-        self.LOG_LEVEL = logging.INFO
+        self.LOG_LEVEL = logging.DEBUG
         self.SERVER_NAME = 'example.com'
 
         self.MAIL_SERVER = 'smtp.mandrillapp.com'
