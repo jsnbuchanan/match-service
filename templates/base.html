@@ -25,15 +25,16 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       {% include "security/_menu.html" %}
       {% set navigation_bar = [
-            ('/', 'search', 'Search'),
-            ('/results', 'results', 'Results'),
-            ('/profiles', 'profiles', 'Your Profiles')
+            ('/', 'search', 'Search', False),
+            ('/results', 'results', 'Results', False),
       ] -%}
 
       {% set active_page = active_page|default('index') -%}
       <ul class="nav navbar-nav navbar-right">
-        {% for href, id, caption in navigation_bar %}
+        {% for href, id, caption, needs_auth in navigation_bar %}
+            {%- if not(needs_auth) or (needs_auth and current_user.is_authenticated) -%}
             <li{% if id == active_page %} class="active"{% endif %}><a href="{{ href|e }}">{{ caption|e }}</a></li>
+            {%- endif -%}
         {% endfor %}
       </ul>
     </div>
