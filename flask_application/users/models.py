@@ -8,6 +8,12 @@ class Role(FlaskDocument, RoleMixin):
     description = db.StringField(max_length=255)
 
 
+class Profile(db.EmbeddedDocument):
+    name = db.StringField(max_length=64)
+    description = db.StringField(max_length=255)
+    images = db.ListField(db.StringField(max_length=512), default=[])
+
+
 class User(FlaskDocument, UserMixin):
     email = db.StringField(max_length=255)
     username = db.StringField(max_length=255)
@@ -15,3 +21,6 @@ class User(FlaskDocument, UserMixin):
     active = db.BooleanField(default=True)
     confirmed_at = db.DateTimeField()
     roles = db.ListField(db.ReferenceField(Role), default=[])
+    profiles = db.EmbeddedDocumentListField('Profile', default=[])
+
+

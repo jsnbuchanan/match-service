@@ -4,6 +4,7 @@ from flask.ext.script import Command
 from flask.ext.security.confirmable import confirm_user
 
 from flask_application.models import FlaskDocument
+from flask_application.users.models import Profile
 
 
 class ResetDB(Command):
@@ -31,17 +32,40 @@ class PopulateDB(Command):
 
     @staticmethod
     def create_users():
-        for u in (('ian', 'hapgilmore23@gmail.com', 'password', ['admin'], True),
-                  ('christina', 'christina.cloward@gmail.com', 'password', ['editor'], True),
-                  ('jason', 'jsnbuchanan@gmail.com', 'password', ['admin'], True),
-                  ('regularUser', 'jsnbuchanan+noPerms@gmail.com', 'password', [], True),
-                  ('amy', 'aobuchanan@gmail.com', 'password', ['author'], False)):
+        for u in (('ian', 'hapgilmore23@gmail.com', 'password', ['admin'], True,
+                   [Profile(name='Ian',
+                            description='wickedly smart beneficent mastermind',
+                            images=['img/profiles-samples/ian-fire.jpg',
+                                     'img/profiles-samples/ian-frog.jpg',
+                                     'img/profiles-samples/ian-color.jpg',
+                                     'img/profiles-samples/ian-suckers.jpg'])]),
+                  ('christina', 'christina.cloward@gmail.com', 'password', ['editor'], True,
+                   [Profile(name='Christina',
+                           description='sexy funny kitty wrangler',
+                           images=['img/profiles-samples/christina.jpg',
+                                   'img/profiles-samples/gilmores.jpg',
+                                   'img/profiles-samples/kitties.jpg'])]),
+                  ('jason', 'jsnbuchanan@gmail.com', 'password', ['admin'], True,
+                   [Profile(name='Jason',
+                           description='robust healthy male',
+                           images=['img/profiles-samples/jason-potion.jpg',
+                                   'img/profiles-samples/jason-warlord.jpg',
+                                   'img/profiles-samples/jason-butt.jpg'])]),
+                  ('amy', 'aobuchanan@gmail.com', 'password', ['author'], True,
+                   [Profile(name='Amy',
+                            description='amazon warrior princess',
+                            images=['img/profiles-samples/amy-kiss.jpg',
+                                    'img/profiles-samples/amy-wifi.jpg',
+                                    'img/profiles-samples/amy-savanah.jpg'])]),
+                  ('regularUser', 'jsnbuchanan+noPerms@gmail.com', 'password', [], True, []),
+                  ('disabledUser', 'jsnbuchanan+disabled@gmail.com', 'password', [], False, [])):
             user = current_app.user_datastore.create_user(
                 username=u[0],
                 email=u[1],
                 password=u[2],
                 roles=u[3],
-                active=u[4]
+                active=u[4],
+                profiles=u[5]
             )
             confirm_user(user)
 

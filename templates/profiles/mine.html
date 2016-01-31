@@ -1,0 +1,19 @@
+{% extends "profiles/index.html" %}
+
+{% block title %}
+Profile Management
+{% endblock %}
+
+{% block content %}
+    {% for profile in current_user.profiles %}
+        <div class="container text-center profile-container">
+            <div class="images">
+                {% for image in profile.images %}
+                    <img src="/static/{{ image }}" class="img-responsive" alt=""/>
+                {% endfor %}
+            </div>
+            <h1>{{ current_user.username }}</h1>
+            <p>{{ profile.description }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

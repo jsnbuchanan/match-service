@@ -11,7 +11,7 @@ class ProfileView(TemplateView):
     blueprint = users
     route = '/profile'
     route_name = 'profile'
-    template_name = 'profiles/profile.html'
+    template_name = 'profiles/mine.html'
     decorators = [login_required]
 
     def get_context_data(self, *args, **kwargs):
