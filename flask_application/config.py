@@ -73,8 +73,8 @@ class ProductionConfig(Config):
         self.MAIL_SERVER = 'smtp.mandrillapp.com'
         self.MAIL_PORT = 587
         self.MAIL_USE_SSL = False
-        self.MAIL_USERNAME = 'jsnbuchanan@gmail.com' # os.getenv('jsnbuchanan@gmail.com')
-        self.MAIL_PASSWORD = 'yx4sFrcY1OtaQWDpLI3k1w' # os.getenv('yx4sFrcY1OtaQWDpLI3k1w')
+        self.MAIL_USERNAME = os.getenv('MANDRILL_USERNAME')
+        self.MAIL_PASSWORD = os.getenv('MANDRILL_APIKEY')
 
         # self.MONGODB_SETTINGS = self.mongo_from_uri(os.getenv('MONGOHQ_URL'))
         self.MONGODB_SETTINGS = self.mongo_from_uri(os.getenv('MONGOLAB_URI'))
