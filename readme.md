@@ -115,6 +115,9 @@ This app is all ready configured to be deployed on Heroku with MongoHQ (database
 
 Simply add the free tiers of those services, change your `config.py` `SERVER_NAME`, set the production config with `heroku config:set ENVIRONMENT=PRODUCTION` and deploy normally.
 
+Querying in MongoEngine
+-----------------------
+See http://docs.mongoengine.org/guide/querying.html for help.
 
 Credit
 ------

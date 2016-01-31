@@ -21,6 +21,6 @@ class User(FlaskDocument, UserMixin):
     active = db.BooleanField(default=True)
     confirmed_at = db.DateTimeField()
     roles = db.ListField(db.ReferenceField(Role), default=[])
-    profiles = db.EmbeddedDocumentListField('Profile', default=[])
+    profiles = db.ListField(db.EmbeddedDocumentField('Profile'), default=[])
 
 
