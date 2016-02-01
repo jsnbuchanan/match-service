@@ -36,3 +36,23 @@ class ResultsView(TemplateView):
         return {
             'profiles': profiles
         }
+
+
+class SpecificProfileView(TemplateView):
+    blueprint = public
+    route = '/profiles/<string:profile_name>'
+    route_name = 'profiles'
+    template_name = 'home/profile.html'
+
+    def get_context_data(self, *args, **kwargs):
+
+        user = User.objects(profiles__name=kwargs['profile_name']).first()
+        profile = None
+        profiles = user.profiles
+        if profiles:
+            for p in profiles:
+                profile = p
+                break
+        return {
+            'profile': profile
+        }

@@ -6,7 +6,7 @@
         <p>displaying {{ profiles | length }} of {{ profiles | length }}</p>
         <div class="row placeholders">
             {%  for profile in profiles %}
-                <a href="/profile/{{ profile.name }}">
+                <a href="{{ url_for('public.profiles', profile_name=profile.name) }}">
                     <div class="profile col-xs-6 col-sm-3 placeholder">
                         <img src="/static/{{ profile.images.0 }}" alt="{{ profile.name }}" class="img-circle img-responsive">
                         <h4>{{ profile.name }}</h4>
